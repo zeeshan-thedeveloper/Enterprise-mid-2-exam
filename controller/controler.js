@@ -70,11 +70,25 @@ image.mv(path.resolve(__dirname,'../public/images', image.name),(error)=>{
 
 }
 
+const removeUser=(req,res)=>{
+    Users.deleteOne({_id:req.query.user_id},(error)=>{
+        if(!error)
+        {
+            console.log("Delte")
+            res.redirect(req.get('referer'));
+        }
+        else{
+            res.send(error.message)
+        }
+    })
+}
+
 module.exports={
     LoadHomePage,
     LoadListOfUsersPage,
     registerUser,
     LoadUserUpdatePage,
     LoadDeleteInfoPage,
-    upateUserData
+    upateUserData,
+    removeUser
 }
