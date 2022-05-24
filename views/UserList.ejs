@@ -41,9 +41,9 @@
                 <td> <%=listOfUsers[i].city%></td>
                 <td>  <%=listOfUsers[i].zipCode%></td>
                 <td>
-                    <select name="cars" id="cars">
-                        <option value="volvo"><a>Delete</a></option>
-                        <option value="saab"><a>Edit</a></option>
+                    <select name="cars" id="cars" onchange="location = this.value;">
+                        <option value=<%="/DeletionInfo?user_id="+listOfUsers[i]._id%>><a>Delete</a></option>
+                        <option value=<%="/UpdateUserData?user_id="+listOfUsers[i]._id%>>Edit</option>
                       </select>
                 </td>
               </tr>
